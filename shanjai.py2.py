@@ -1,0 +1,12 @@
+a=10
+b=20
+add=a+b
+sub=a-b
+multi=a*b
+div=a/b
+mod=a%b
+print("Add:",add)
+print("sub:",sub)
+print("Divide",div)
+print("Multiply:",multi)
+print("Modules:",mod)
