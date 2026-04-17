@@ -5,4 +5,4 @@ middle =(num//100)%10
 
 square=middle*middle
 
-print(f"square of {middle} is:{square}")
+print("square of " {middle} " is:"{square})
