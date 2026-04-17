@@ -17,7 +17,7 @@ print("b:",b)
 
 
 
-#swapping using third variable
+#swapping using without third variable
 
 a=int(input("Enter the value of a:"))
 b=int(input("Enter the value of b:"))
