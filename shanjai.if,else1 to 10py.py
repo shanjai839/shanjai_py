@@ -13,12 +13,14 @@ if(a>b):
     print("Largest number(A):",a)
 else:
     print("Largest number(B):",b)
+'''
 '''#absulate value
 num=int(input("Enter number:"))
 if(num>0):
    print("Absolute:",num)
 else:
     print("Asolute:"(-(num)))
+'''
 
 '''#even or odd 
 num=8
@@ -62,7 +64,7 @@ if(num%10==0):
 else:
     print("not End with 0")
 '''
-'''
+'''square
 num=int(input("Enter the number"))
 square=num**2
 print("square root:",square)
