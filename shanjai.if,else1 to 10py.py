@@ -18,7 +18,7 @@ num=int(input("Enter number:"))
 if(num>0):
    print("Absolute:",num)
 else:
-    print("Asolute:"(-(num)))
+    print("Asolute:",(-(num)))
 '''
 
 '''#even or odd 
