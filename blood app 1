@@ -1,0 +1,186 @@
+import json
+import os
+
+BLOOD_GROUPS = ("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
+FILE_NAME = "blood_data.json"
+
+
+# Load data from file
+def load_data():
+    if os.path.exists(FILE_NAME):
+        with open(FILE_NAME, "r") as file:
+            return json.load(file)
+    return {"donors": [], "requests": []}
+
+
+# Save data to file
+def save_data():
+    with open(FILE_NAME, "w") as file:
+        json.dump(data, file, indent=4)
+
+
+# Load existing data
+data = load_data()
+
+
+# Register donor
+def register_donor():
+    print("\n--- Register Donor ---")
+
+    name = input("Enter Name: ")
+    print("Blood Groups:", ", ".join(BLOOD_GROUPS))
+
+    blood = input("Enter Blood Group: ").upper().strip()
+    phone = input("Enter Phone Number: ")
+    city = input("Enter City: ")
+
+    try:
+        age = int(input("Enter Age: "))
+    except ValueError:
+        print("Invalid Age!")
+        return
+
+    if blood not in BLOOD_GROUPS:
+        print("Invalid Blood Group!")
+        return
+
+    donor = {
+        "name": name,
+        "blood_group": blood,
+        "phone": phone,
+        "city": city,
+        "age": age
+    }
+
+    data["donors"].append(donor)
+    save_data()
+
+    print("Donor Registered Successfully!")
+
+
+# List donors
+def list_donors():
+    print("\n--- Donor List ---")
+
+    if len(data["donors"]) == 0:
+        print("No donors available.")
+        return
+
+    for i, donor in enumerate(data["donors"], start=1):
+        print(
+            f"{i}. {donor['name']} | "
+            f"{donor['blood_group']} | "
+            f"{donor['city']} | "
+            f"{donor['phone']}"
+        )
+
+
+# Add blood request
+def post_request():
+    print("\n--- Blood Request ---")
+
+    patient = input("Patient Name: ")
+    print("Blood Groups:", ", ".join(BLOOD_GROUPS))
+
+    blood = input("Blood Needed: ").upper().strip()
+    hospital = input("Hospital Name: ")
+    city = input("City: ")
+    phone = input("Contact Number: ")
+
+    if blood not in BLOOD_GROUPS:
+        print("Invalid Blood Group!")
+        return
+
+    request = {
+        "patient_name": patient,
+        "blood_group": blood,
+        "hospital": hospital,
+        "city": city,
+        "phone": phone
+    }
+
+    data["requests"].append(request)
+    save_data()
+
+    print("Blood Request Added Successfully!")
+
+
+# List requests
+def list_requests():
+    print("\n--- Blood Requests ---")
+
+    if len(data["requests"]) == 0:
+        print("No blood requests found.")
+        return
+
+    for i, req in enumerate(data["requests"], start=1):
+        print(
+            f"{i}. {req['patient_name']} needs "
+            f"{req['blood_group']} blood at "
+            f"{req['hospital']} ({req['city']}) "
+            f"| Phone: {req['phone']}"
+        )
+
+
+# Find matching donors
+def find_match():
+    print("\n--- Find Matching Donors ---")
+
+    blood = input("Enter Blood Group Needed: ").upper().strip()
+    city = input("Enter City: ")
+
+    found = False
+
+    for donor in data["donors"]:
+        if (
+            donor["blood_group"] == blood
+            and donor["city"].lower() == city.lower()
+        ):
+            print(
+                f"{donor['name']} | "
+                f"{donor['phone']} | "
+                f"{donor['city']}"
+            )
+            found = True
+
+    if not found:
+        print("No matching donors found.")
+
+
+# Main Menu
+def main():
+    while True:
+        print("\n===== BLOOD DONATION APP =====")
+        print("1. Register Donor")
+        print("2. List Donors")
+        print("3. Post Blood Request")
+        print("4. List Requests")
+        print("5. Find Matching Donors")
+        print("6. Exit")
+
+        choice = input("Choose option (1-6): ")
+
+        if choice == "1":
+            register_donor()
+
+        elif choice == "2":
+            list_donors()
+
+        elif choice == "3":
+            post_request()
+
+        elif choice == "4":
+            list_requests()
+
+        elif choice == "5":
+            find_match()
+
+        elif choice == "6":
+            print("Thank You!")
+            break
+
+        else:
+            print("Invalid Choice!")
+
+
+main()
