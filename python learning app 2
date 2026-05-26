@@ -1,0 +1,295 @@
+-------------------------------
+# FUNCTIONS
+# -------------------------------
+
+def show_topic(n, video):
+    t = topics[n]
+
+    print("\n==============================")
+    print("TOPIC:", t["name"])
+    print("==============================")
+
+    if video == "yes":
+        webbrowser.open(t["video"])
+
+    print("\nEXPLANATION:")
+    print(t["text"])
+
+    print("\nEXAMPLE:")
+    print(t["example"])
+
+
+# -------------------------------
+# MAIN MENU
+# -------------------------------
+
+import webbrowser
+
+# -------------------------------
+# PYTHON LEARNING APP (26 TOPICS)
+# -------------------------------
+
+topics = {
+    1: {
+        "name": "Variables and Data Types",
+        "video": "https://youtu.be/Rtmgt2Qfqr4",
+        "text": "Variables store data. Types: int, float, str, bool.",
+        "example": "name='Shanjai'\nage=20\nprint(name, age)"
+    },
+
+    2: {
+        "name": "Input and Casting",
+        "video": "https://youtu.be/rqkkd-h087A",
+        "text": "input() gets data, casting changes type.",
+        "example": "age=int(input('Enter age: '))\nprint(age)"
+    },
+
+    3: {
+        "name": "If Else",
+        "video": "https://youtu.be/eYtf9a8LoIg",
+        "text": "Decision making using if else.",
+        "example": "age=18\nif age>=18:\n print('Vote')\nelse:\n print('No Vote')"
+    },
+
+    4: {
+        "name": "If Else Example 1",
+        "video": "https://youtu.be/TQTnqQ6CypM",
+        "text": "Check pass or fail.",
+        "example": "mark=40\nif mark>=35:\n print('Pass')\nelse:\n print('Fail')"
+    },
+
+    5: {
+        "name": "If Else Example 2",
+        "video": "https://youtu.be/KYmMV9tABjU",
+        "text": "Grade system.",
+        "example": "mark=90\nif mark>=90:\n print('A')"
+    },
+
+    6: {
+        "name": "If Else Example 3",
+        "video": "https://youtu.be/hqD4pfTPAMk",
+        "text": "Odd even check.",
+        "example": "n=5\nif n%2==0:\n print('Even')\nelse:\n print('Odd')"
+    },
+
+    7: {
+        "name": "For Loop",
+        "video": "https://youtu.be/zwM_9R37pyo",
+        "text": "Repeats code.",
+        "example": "for i in range(5):\n print(i)"
+    },
+
+    8: {
+        "name": "For Loop Part 1",
+        "video": "https://youtu.be/WMh9yACCYwI",
+        "text": "Print 1 to 10.",
+        "example": "for i in range(1,11):\n print(i)"
+    },
+
+    9: {
+        "name": "For Loop Part 2",
+        "video": "https://youtu.be/ChMbB1TC0BE",
+        "text": "Even numbers.",
+        "example": "for i in range(2,21,2):\n print(i)"
+    },
+
+    10: {
+        "name": "Nested Loop",
+        "video": "https://youtu.be/wuKfqoPsf7E",
+        "text": "Loop inside loop.",
+        "example": "for i in range(3):\n for j in range(3):\n  print(i,j)"
+    },
+
+    11: {
+        "name": "While Loop",
+        "video": "https://youtu.be/Np3fzqoaYQw",
+        "text": "Loop with condition.",
+        "example": "i=1\nwhile i<=5:\n print(i)\n i+=1"
+    },
+
+    12: {
+        "name": "Collections",
+        "video": "https://youtu.be/hvmduOeCh4o",
+        "text": "List, Tuple, Set, Dict.",
+        "example": "a=[1,2]\nb=(1,2)\nc={1,2}\nd={'a':1}"
+    },
+
+    13: {
+        "name": "Functions",
+        "video": "https://youtu.be/Gb1oZy6kAWA",
+        "text": "Reusable code block.",
+        "example": "def add():\n print(5+5)\nadd()"
+    },
+
+    14: {
+        "name": "Return Keyword",
+        "video": "https://youtu.be/XCDDWb71Zr8",
+        "text": "Returns value from function.",
+        "example": "def add():\n return 5+5\nprint(add())"
+    },
+
+    15: {
+        "name": "Classes and Objects",
+        "video": "https://youtu.be/rltSHY2Y7-c",
+        "text": "OOP basics.",
+        "example": "class A:\n pass\nobj=A()"
+    },
+
+    16: {
+        "name": "Constructor",
+        "video": "https://youtu.be/K3HD0gJXJYQ",
+        "text": "__init__ method.",
+        "example": "class A:\n def __init__(self):\n  print('Hi')"
+    },
+
+    17: {
+        "name": "Class Example",
+        "video": "https://youtu.be/PJxwAJdWpVY",
+        "text": "Class usage.",
+        "example": "class A:\n def show(self):\n  print('Hello')"
+    },
+
+    18: {
+        "name": "Class Variables",
+        "video": "https://youtu.be/u2xA51-7WHE",
+        "text": "Instance & class variables.",
+        "example": "class A:\n x=10"
+    },
+
+    19: {
+        "name": "Types of Class",
+        "video": "https://youtu.be/5AKE_lm_XTI",
+        "text": "Different class types.",
+        "example": "class A:\n pass"
+    },
+
+    20: {
+        "name": "Inheritance",
+        "video": "https://youtu.be/oVypM2Ld1PA",
+        "text": "Parent-child class.",
+        "example": "class A:\n pass\nclass B(A):\n pass"
+    },
+
+    21: {
+        "name": "Super Keyword",
+        "video": "https://youtu.be/tEzYlonaKYs",
+        "text": "Call parent class.",
+        "example": "super().__init__()"
+    },
+
+    22: {
+        "name": "Polymorphism",
+        "video": "https://youtu.be/CxLFjJHkWLI",
+        "text": "Many forms.",
+        "example": "print(len('a'))"
+    },
+
+    23: {
+        "name": "OOP Combined",
+        "video": "https://youtu.be/OFjHWCdCCcs",
+        "text": "Inheritance + super + polymorphism",
+        "example": "class A:\n pass"
+    },
+
+    24: {
+        "name": "Encapsulation",
+        "video": "https://youtu.be/1LAYd0xtkkI",
+        "text": "Hide data.",
+        "example": "self.__x=10"
+    },
+
+    25: {
+        "name": "Exception Handling",
+        "video": "https://youtu.be/Z09I_OHuflw",
+        "text": "Error handling.",
+        "example": "try:\n print(10/0)\nexcept:\n print('Error')"
+    },
+
+    26: {
+        "name": "File Handling",
+        "video": "https://youtu.be/m2xIFRXHnJY",
+        "text": "Read/write files.",
+        "example": "open('a.txt','w').write('Hi')"
+    }
+}
+
+
+# -------------------------------
+# FUNCTIONS
+# -------------------------------
+
+
+import webbrowser
+
+full_video = "https://youtu.be/m67-bOpOoPU?si=GsNvBllUeVO3Epz6"
+
+while True:
+
+    print("\n===== PYTHON LEARNING APP =====")
+    print("1. Learn Full Topic (Video + Text Document)")
+    print("2. Learn One Topic")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    # ---------------- FULL TOPIC ----------------
+    if choice == "1":
+
+        print("\nOpening Full Python Video...")
+        webbrowser.open(full_video)
+
+        print("\n" + "="*60)
+        print("📘 PYTHON FULL TEXT DOCUMENT (26 TOPICS)")
+        print("="*60)
+
+        for i in topics:
+
+            print("\nTOPIC:", topics[i]["name"])
+            print("-"*40)
+
+            print("EXPLANATION:")
+            print(topics[i]["text"])
+
+            print("\nEXAMPLE:")
+            print(topics[i]["example"])
+
+            print("="*60)
+
+    # ---------------- ONE TOPIC ----------------
+    elif choice == "2":
+
+        print("\n===== AVAILABLE TOPICS =====\n")
+
+        for i in topics:
+            print(i, "-", topics[i]["name"])
+
+        try:
+            topic = int(input("\nEnter topic number: "))
+
+            if topic in topics:
+
+                print("\nSelected Topic:", topics[topic]["name"])
+
+                video = input("Do you want video? (yes/no): ").lower()
+
+                if video == "yes":
+                    webbrowser.open(topics[topic]["video"])
+
+                print("\nEXPLANATION:\n", topics[topic]["text"])
+                print("\nEXAMPLE:\n", topics[topic]["example"])
+
+            else:
+                print("❌ Invalid topic number")
+
+        except:
+            print("❌ Enter number only")
+
+    # ---------------- EXIT ----------------
+    elif choice == "3":
+        print("Thank you for using Python Learning App 👍")
+        break
+
+    else:
+        print("❌ Invalid choice, try again")
+
+
