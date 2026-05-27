@@ -1,11 +1,11 @@
--------------------------------
-# FUNCTIONS
-# -------------------------------
+import webbrowser
+
+# FUNCTION
 
 def show_topic(n, video):
     t = topics[n]
 
-    print("\n==============================")
+    print("==============================")
     print("TOPIC:", t["name"])
     print("==============================")
 
@@ -19,15 +19,9 @@ def show_topic(n, video):
     print(t["example"])
 
 
-# -------------------------------
-# MAIN MENU
-# -------------------------------
 
-import webbrowser
 
-# -------------------------------
-# PYTHON LEARNING APP (26 TOPICS)
-# -------------------------------
+#26 TOPICS
 
 topics = {
     1: {
@@ -214,25 +208,22 @@ topics = {
 }
 
 
-# -------------------------------
-# FUNCTIONS
-# -------------------------------
+
+# menu 
 
 
-import webbrowser
 
 full_video = "https://youtu.be/m67-bOpOoPU?si=GsNvBllUeVO3Epz6"
 
 while True:
 
-    print("\n===== PYTHON LEARNING APP =====")
+    print("===== PYTHON LEARNING APP =====")
     print("1. Learn Full Topic (Video + Text Document)")
     print("2. Learn One Topic")
     print("3. Exit")
 
     choice = input("Enter choice: ")
-
-    # ---------------- FULL TOPIC ----------------
+ #FULL TOPIC
     if choice == "1":
 
         print("\nOpening Full Python Video...")
@@ -255,16 +246,16 @@ while True:
 
             print("="*60)
 
-    # ---------------- ONE TOPIC ----------------
+ # ONE TOPIC 
     elif choice == "2":
 
-        print("\n===== AVAILABLE TOPICS =====\n")
+        print("===== AVAILABLE TOPICS =====\n")
 
         for i in topics:
             print(i, "-", topics[i]["name"])
 
         try:
-            topic = int(input("\nEnter topic number: "))
+            topic = int(input("Enter topic number: "))
 
             if topic in topics:
 
@@ -290,6 +281,6 @@ while True:
         break
 
     else:
-        print("❌ Invalid choice, try again")
+        print(" Invalid choice, try again")
 
 
